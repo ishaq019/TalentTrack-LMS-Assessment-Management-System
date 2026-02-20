@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://syedishaq.me",
+  "homepage": "https://syedishaq.me/TalentTrack-LMS-Assessment-Management-System",
 
   "scripts": {
     "dev": "vite --host",
