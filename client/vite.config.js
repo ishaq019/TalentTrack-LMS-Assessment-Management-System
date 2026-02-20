@@ -5,7 +5,7 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: "/TalentTrack-LMS-Assessment-Management-System",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src")
