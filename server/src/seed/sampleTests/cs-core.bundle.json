@@ -1,0 +1,472 @@
+{
+  "tests": [
+    {
+      "metadata": {
+        "id": "T-CS-OS-001",
+        "title": "OS Fundamentals 01",
+        "type": "quiz",
+        "category": "cs-core",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Operating Systems",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "What is the primary role of an Operating System?",
+              "options": [
+                "Write application code",
+                "Manage hardware and provide services to programs",
+                "Compile source code",
+                "Design databases"
+              ],
+              "correctAnswer": "Manage hardware and provide services to programs",
+              "explanation": "OS manages resources and provides abstractions."
+            },
+            {
+              "id": "Q2",
+              "question": "Which scheduling algorithm can cause starvation?",
+              "options": ["FCFS", "Round Robin", "SJF", "FIFO"],
+              "correctAnswer": "SJF",
+              "explanation": "Shortest Job First may starve long jobs."
+            },
+            {
+              "id": "Q3",
+              "question": "A process in OS is:",
+              "options": [
+                "A program in execution",
+                "A program stored on disk",
+                "A compiler",
+                "A hardware device"
+              ],
+              "correctAnswer": "A program in execution",
+              "explanation": "Process = running program + state."
+            },
+            {
+              "id": "Q4",
+              "question": "What is a deadlock?",
+              "options": [
+                "A process completes early",
+                "Processes wait forever for resources held by each other",
+                "CPU becomes idle",
+                "Memory gets full"
+              ],
+              "correctAnswer": "Processes wait forever for resources held by each other",
+              "explanation": "Circular wait leads to deadlock."
+            },
+            {
+              "id": "Q5",
+              "question": "Which is NOT a necessary condition for deadlock?",
+              "options": [
+                "Mutual exclusion",
+                "Hold and wait",
+                "Preemption",
+                "Circular wait"
+              ],
+              "correctAnswer": "Preemption",
+              "explanation": "No preemption is required; preemption breaks deadlock."
+            },
+            {
+              "id": "Q6",
+              "question": "Virtual memory mainly helps in:",
+              "options": [
+                "Increasing CPU speed",
+                "Executing programs larger than physical memory",
+                "Reducing disk space",
+                "Improving network bandwidth"
+              ],
+              "correctAnswer": "Executing programs larger than physical memory",
+              "explanation": "Virtual memory extends memory via paging/segmentation."
+            },
+            {
+              "id": "Q7",
+              "question": "A page fault occurs when:",
+              "options": [
+                "A page is in memory",
+                "A referenced page is not in memory",
+                "CPU is overloaded",
+                "Disk fails"
+              ],
+              "correctAnswer": "A referenced page is not in memory",
+              "explanation": "OS must load the page from disk."
+            },
+            {
+              "id": "Q8",
+              "question": "Context switching is:",
+              "options": [
+                "Changing a variable value",
+                "Switching CPU from one process/thread to another",
+                "Switching power mode",
+                "Switching memory addresses only"
+              ],
+              "correctAnswer": "Switching CPU from one process/thread to another",
+              "explanation": "Saving/restoring CPU state to run another process."
+            },
+            {
+              "id": "Q9",
+              "question": "Which is an example of a system call?",
+              "options": ["printf()", "malloc()", "open()", "strlen()"],
+              "correctAnswer": "open()",
+              "explanation": "open() interacts with OS kernel for file I/O."
+            },
+            {
+              "id": "Q10",
+              "question": "Which mechanism prevents a process from hogging CPU?",
+              "options": ["Paging", "Time quantum", "Spooling", "DMA"],
+              "correctAnswer": "Time quantum",
+              "explanation": "Used in preemptive scheduling like Round Robin."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-CS-DBMS-001",
+        "title": "DBMS Fundamentals 01",
+        "type": "quiz",
+        "category": "cs-core",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "DBMS",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "What is a primary key?",
+              "options": [
+                "A key that can be NULL",
+                "A unique identifier for a row",
+                "A key used only for sorting",
+                "A duplicate column"
+              ],
+              "correctAnswer": "A unique identifier for a row",
+              "explanation": "Primary key uniquely identifies each tuple."
+            },
+            {
+              "id": "Q2",
+              "question": "Normalization is used to:",
+              "options": [
+                "Increase redundancy",
+                "Reduce redundancy and improve integrity",
+                "Make queries slower",
+                "Store images"
+              ],
+              "correctAnswer": "Reduce redundancy and improve integrity",
+              "explanation": "Normalization reduces anomalies."
+            },
+            {
+              "id": "Q3",
+              "question": "Which normal form removes partial dependency?",
+              "options": ["1NF", "2NF", "3NF", "BCNF"],
+              "correctAnswer": "2NF",
+              "explanation": "2NF removes partial dependency on composite key."
+            },
+            {
+              "id": "Q4",
+              "question": "A foreign key is used to:",
+              "options": [
+                "Encrypt data",
+                "Link two tables",
+                "Create indexes only",
+                "Drop tables"
+              ],
+              "correctAnswer": "Link two tables",
+              "explanation": "References primary key in another table."
+            },
+            {
+              "id": "Q5",
+              "question": "Which SQL statement is used to remove a table and its data?",
+              "options": ["DELETE", "DROP", "TRUNCATE", "REMOVE"],
+              "correctAnswer": "DROP",
+              "explanation": "DROP TABLE removes table schema and data."
+            },
+            {
+              "id": "Q6",
+              "question": "Which isolation level is the strictest in ACID isolation?",
+              "options": ["Read Uncommitted", "Read Committed", "Repeatable Read", "Serializable"],
+              "correctAnswer": "Serializable",
+              "explanation": "Serializable prevents anomalies like phantom reads."
+            },
+            {
+              "id": "Q7",
+              "question": "ACID stands for:",
+              "options": [
+                "Atomicity, Consistency, Isolation, Durability",
+                "Accuracy, Consistency, Indexing, Durability",
+                "Atomicity, Connectivity, Isolation, Dependency",
+                "Availability, Consistency, Isolation, Distribution"
+              ],
+              "correctAnswer": "Atomicity, Consistency, Isolation, Durability",
+              "explanation": "Standard properties of transactions."
+            },
+            {
+              "id": "Q8",
+              "question": "Which join returns only matching rows from both tables?",
+              "options": ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL OUTER JOIN"],
+              "correctAnswer": "INNER JOIN",
+              "explanation": "INNER JOIN returns intersection."
+            },
+            {
+              "id": "Q9",
+              "question": "Indexing primarily improves:",
+              "options": ["Insert speed", "Select/search speed", "Disk space saving", "Network speed"],
+              "correctAnswer": "Select/search speed",
+              "explanation": "Indexes speed up lookups."
+            },
+            {
+              "id": "Q10",
+              "question": "A view in SQL is:",
+              "options": [
+                "A physical table",
+                "A virtual table based on a query",
+                "A stored procedure",
+                "A database trigger"
+              ],
+              "correctAnswer": "A virtual table based on a query",
+              "explanation": "Views are stored queries presenting virtual tables."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-CS-CN-001",
+        "title": "Computer Networks 01",
+        "type": "quiz",
+        "category": "cs-core",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Networking Basics",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Which layer of OSI is responsible for end-to-end communication?",
+              "options": ["Network", "Transport", "Data Link", "Physical"],
+              "correctAnswer": "Transport",
+              "explanation": "Transport layer (TCP/UDP) provides end-to-end delivery."
+            },
+            {
+              "id": "Q2",
+              "question": "Which protocol is connection-oriented?",
+              "options": ["UDP", "TCP", "ICMP", "ARP"],
+              "correctAnswer": "TCP",
+              "explanation": "TCP establishes a connection before data transfer."
+            },
+            {
+              "id": "Q3",
+              "question": "An IP address is used for:",
+              "options": ["Naming web pages", "Identifying a device on a network", "Encrypting data", "Storing files"],
+              "correctAnswer": "Identifying a device on a network",
+              "explanation": "IP provides logical addressing."
+            },
+            {
+              "id": "Q4",
+              "question": "Which device operates at Network layer?",
+              "options": ["Hub", "Switch", "Router", "Repeater"],
+              "correctAnswer": "Router",
+              "explanation": "Routers forward packets based on IP."
+            },
+            {
+              "id": "Q5",
+              "question": "DNS translates:",
+              "options": ["IP to MAC", "Domain names to IP addresses", "Packets to frames", "HTTP to FTP"],
+              "correctAnswer": "Domain names to IP addresses",
+              "explanation": "DNS resolves hostnames."
+            },
+            {
+              "id": "Q6",
+              "question": "HTTP is primarily used for:",
+              "options": ["Email", "Web browsing", "File transfer only", "Remote login only"],
+              "correctAnswer": "Web browsing",
+              "explanation": "HTTP is the web protocol."
+            },
+            {
+              "id": "Q7",
+              "question": "Which of these is a private IP range?",
+              "options": ["8.8.8.8", "172.16.0.0", "1.1.1.1", "100.64.0.0"],
+              "correctAnswer": "172.16.0.0",
+              "explanation": "172.16.0.0–172.31.255.255 are private."
+            },
+            {
+              "id": "Q8",
+              "question": "A MAC address is used at:",
+              "options": ["Network layer", "Transport layer", "Data Link layer", "Application layer"],
+              "correctAnswer": "Data Link layer",
+              "explanation": "MAC is L2 addressing."
+            },
+            {
+              "id": "Q9",
+              "question": "Which is NOT a valid IPv4 address?",
+              "options": ["192.168.1.1", "10.0.0.5", "256.1.1.1", "172.16.5.10"],
+              "correctAnswer": "256.1.1.1",
+              "explanation": "Octets must be 0–255."
+            },
+            {
+              "id": "Q10",
+              "question": "Which protocol is used to get an IP address automatically?",
+              "options": ["DNS", "DHCP", "FTP", "SMTP"],
+              "correctAnswer": "DHCP",
+              "explanation": "DHCP assigns IP configuration dynamically."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-CS-OOP-001",
+        "title": "OOP Fundamentals 01",
+        "type": "quiz",
+        "category": "cs-core",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Object Oriented Programming",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Encapsulation means:",
+              "options": [
+                "Hiding implementation details and bundling data with methods",
+                "Writing code without classes",
+                "Only using functions",
+                "Avoiding objects"
+              ],
+              "correctAnswer": "Hiding implementation details and bundling data with methods",
+              "explanation": "Encapsulation = data + methods + access control."
+            },
+            {
+              "id": "Q2",
+              "question": "Inheritance is used to:",
+              "options": [
+                "Reduce code reuse",
+                "Create new classes from existing classes",
+                "Hide data",
+                "Increase redundancy"
+              ],
+              "correctAnswer": "Create new classes from existing classes",
+              "explanation": "Inheritance supports reuse and hierarchy."
+            },
+            {
+              "id": "Q3",
+              "question": "Polymorphism allows:",
+              "options": [
+                "One interface, multiple implementations",
+                "One variable, one value only",
+                "No method overriding",
+                "Only static methods"
+              ],
+              "correctAnswer": "One interface, multiple implementations",
+              "explanation": "Polymorphism is many forms."
+            },
+            {
+              "id": "Q4",
+              "question": "Abstraction means:",
+              "options": [
+                "Showing only essential features and hiding details",
+                "Hiding all variables permanently",
+                "Not using classes",
+                "Avoiding functions"
+              ],
+              "correctAnswer": "Showing only essential features and hiding details",
+              "explanation": "Abstraction focuses on what, not how."
+            },
+            {
+              "id": "Q5",
+              "question": "Method overloading is:",
+              "options": [
+                "Same method name with different parameters",
+                "Same method name with same parameters",
+                "Only in runtime",
+                "Not supported in OOP"
+              ],
+              "correctAnswer": "Same method name with different parameters",
+              "explanation": "Overloading differs by signature."
+            },
+            {
+              "id": "Q6",
+              "question": "Method overriding is:",
+              "options": [
+                "Subclass providing a specific implementation of parent method",
+                "Two methods in same class with different params",
+                "A way to create variables",
+                "A database feature"
+              ],
+              "correctAnswer": "Subclass providing a specific implementation of parent method",
+              "explanation": "Override changes behavior in subclass."
+            },
+            {
+              "id": "Q7",
+              "question": "Which principle is achieved using private fields with getters/setters?",
+              "options": ["Inheritance", "Encapsulation", "Polymorphism", "Composition"],
+              "correctAnswer": "Encapsulation",
+              "explanation": "Access control + controlled modification."
+            },
+            {
+              "id": "Q8",
+              "question": "A class is:",
+              "options": [
+                "An instance of an object",
+                "A blueprint for creating objects",
+                "A function",
+                "A database row"
+              ],
+              "correctAnswer": "A blueprint for creating objects",
+              "explanation": "Class defines structure/behavior."
+            },
+            {
+              "id": "Q9",
+              "question": "An object is:",
+              "options": [
+                "A blueprint",
+                "An instance of a class",
+                "A compiler",
+                "A package manager"
+              ],
+              "correctAnswer": "An instance of a class",
+              "explanation": "Object is a runtime entity."
+            },
+            {
+              "id": "Q10",
+              "question": "Composition is:",
+              "options": [
+                "A 'has-a' relationship between objects",
+                "A 'is-a' relationship",
+                "Only for inheritance",
+                "Not used in OOP"
+              ],
+              "correctAnswer": "A 'has-a' relationship between objects",
+              "explanation": "Composition builds objects from other objects."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

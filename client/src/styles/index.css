@@ -1,0 +1,45 @@
+/* client/src/styles/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Global Defaults ---------- */
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, Inter, Segoe UI, Roboto, Arial;
+  background: #020617; /* slate-950 */
+}
+
+/* ---------- Smooth text rendering ---------- */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Better focus outlines (accessibility) ---------- */
+:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.8);
+  outline-offset: 2px;
+}
+
+/* ---------- Subtle scrollbar (optional) ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25); /* slate-400 */
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.35);
+}

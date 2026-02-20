@@ -1,0 +1,172 @@
+{
+  "tests": [
+    {
+      "metadata": {
+        "id": "T-CODE-001",
+        "title": "Coding Basics 01 (Sum of Two Numbers)",
+        "type": "coding",
+        "category": "coding",
+        "difficulty": "easy",
+        "durationMinutes": 30,
+        "isPractice": true
+      },
+      "config": {
+        "scorePerTestcase": 10
+      },
+      "sections": [
+        {
+          "sectionType": "coding",
+          "title": "Easy Coding",
+          "problems": [
+            {
+              "id": "P1",
+              "title": "Sum of Two Numbers",
+              "statement": "Given two integers a and b, print their sum.",
+              "inputFormat": "Two integers a and b separated by space.",
+              "outputFormat": "Single integer: a + b.",
+              "constraints": "-10^9 <= a,b <= 10^9",
+              "languages": ["javascript", "python"],
+              "starterCode": {
+                "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0,'utf8').trim().split(/\\s+/).map(Number);\nconst a = input[0], b = input[1];\n// TODO: print sum\n",
+                "python": "import sys\narr = sys.stdin.read().strip().split()\na = int(arr[0]); b = int(arr[1])\n# TODO: print sum\n"
+              },
+              "testcases": [
+                { "input": "2 3\n", "output": "5\n", "isSample": true },
+                { "input": "-10 4\n", "output": "-6\n", "isSample": true },
+                { "input": "1000000000 1000000000\n", "output": "2000000000\n", "isSample": false },
+                { "input": "0 0\n", "output": "0\n", "isSample": false }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-CODE-002",
+        "title": "Coding Basics 02 (Reverse String)",
+        "type": "coding",
+        "category": "coding",
+        "difficulty": "easy",
+        "durationMinutes": 35,
+        "isPractice": false
+      },
+      "config": {
+        "scorePerTestcase": 10
+      },
+      "sections": [
+        {
+          "sectionType": "coding",
+          "title": "Strings",
+          "problems": [
+            {
+              "id": "P1",
+              "title": "Reverse a String",
+              "statement": "Given a string s, print the reverse of s.",
+              "inputFormat": "A single line string s.",
+              "outputFormat": "Reverse of s.",
+              "constraints": "1 <= |s| <= 10^5",
+              "languages": ["javascript", "python"],
+              "starterCode": {
+                "javascript": "const fs = require('fs');\nconst s = fs.readFileSync(0,'utf8').replace(/\\r\\n/g,'\\n');\n// TODO: print reversed string\n",
+                "python": "import sys\ns = sys.stdin.read().replace('\\r\\n','\\n')\n# TODO: print reversed string\n"
+              },
+              "testcases": [
+                { "input": "hello\n", "output": "olleh\n", "isSample": true },
+                { "input": "TalentTrack\n", "output": "kcarTtnelaT\n", "isSample": true },
+                { "input": "a\n", "output": "a\n", "isSample": false },
+                { "input": "abcd efgh\n", "output": "hgfe dcba\n", "isSample": false }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-CODE-003",
+        "title": "Coding DSA 01 (Valid Parentheses)",
+        "type": "coding",
+        "category": "coding",
+        "difficulty": "medium",
+        "durationMinutes": 45,
+        "isPractice": true
+      },
+      "config": {
+        "scorePerTestcase": 10
+      },
+      "sections": [
+        {
+          "sectionType": "coding",
+          "title": "Stacks",
+          "problems": [
+            {
+              "id": "P1",
+              "title": "Valid Parentheses",
+              "statement": "Given a string containing only '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Print YES or NO.",
+              "inputFormat": "A single line string s.",
+              "outputFormat": "YES if valid else NO.",
+              "constraints": "1 <= |s| <= 10^5",
+              "languages": ["javascript", "python"],
+              "starterCode": {
+                "javascript": "const fs = require('fs');\nconst s = fs.readFileSync(0,'utf8').trim();\n// TODO: print YES or NO\n",
+                "python": "import sys\ns = sys.stdin.read().strip()\n# TODO: print YES or NO\n"
+              },
+              "testcases": [
+                { "input": "()[]{}\\n", "output": "YES\n", "isSample": true },
+                { "input": "(]\\n", "output": "NO\n", "isSample": true },
+                { "input": "([{}])\\n", "output": "YES\n", "isSample": false },
+                { "input": "(((()\\n", "output": "NO\n", "isSample": false },
+                { "input": "{[()]}[]\\n", "output": "YES\n", "isSample": false }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-CODE-004",
+        "title": "Coding DSA 02 (Two Sum)",
+        "type": "coding",
+        "category": "coding",
+        "difficulty": "medium",
+        "durationMinutes": 50,
+        "isPractice": false
+      },
+      "config": {
+        "scorePerTestcase": 10
+      },
+      "sections": [
+        {
+          "sectionType": "coding",
+          "title": "Hashing",
+          "problems": [
+            {
+              "id": "P1",
+              "title": "Two Sum Indexes",
+              "statement": "Given n, an array of n integers, and a target, find two different indices i and j (0-based) such that arr[i] + arr[j] = target. Print i and j (space-separated). If multiple answers exist, print the pair with smallest i; if tie, smallest j.",
+              "inputFormat": "n\narr[0..n-1]\ntarget\n",
+              "outputFormat": "i j",
+              "constraints": "2 <= n <= 2*10^5",
+              "languages": ["javascript", "python"],
+              "starterCode": {
+                "javascript": "const fs = require('fs');\nconst data = fs.readFileSync(0,'utf8').trim().split(/\\s+/);\nlet k=0;\nconst n = Number(data[k++]);\nconst arr = [];\nfor (let i=0;i<n;i++) arr.push(Number(data[k++]));\nconst target = Number(data[k++]);\n// TODO: print i and j\n",
+                "python": "import sys\ndata = sys.stdin.read().strip().split()\nk=0\nn=int(data[k]); k+=1\narr=list(map(int,data[k:k+n])); k+=n\ntarget=int(data[k])\n# TODO: print i and j\n"
+              },
+              "testcases": [
+                { "input": "4\n2 7 11 15\n9\n", "output": "0 1\n", "isSample": true },
+                { "input": "3\n3 2 4\n6\n", "output": "1 2\n", "isSample": true },
+                { "input": "5\n1 5 1 5 3\n6\n", "output": "0 1\n", "isSample": false },
+                { "input": "6\n-1 -2 -3 -4 -5 -6\n-8\n", "output": "1 5\n", "isSample": false }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

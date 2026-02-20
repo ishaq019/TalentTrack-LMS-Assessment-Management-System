@@ -1,0 +1,291 @@
+{
+  "tests": [
+    {
+      "metadata": {
+        "id": "T-DSA-001",
+        "title": "DSA Basics 01 (Arrays & Strings)",
+        "type": "quiz",
+        "category": "dsa",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Arrays & Strings",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Time complexity of accessing an element in an array by index is:",
+              "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+              "correctAnswer": "O(1)",
+              "explanation": "Direct indexing is constant time."
+            },
+            {
+              "id": "Q2",
+              "question": "Which data structure is best for LIFO?",
+              "options": ["Queue", "Stack", "Linked List", "Heap"],
+              "correctAnswer": "Stack",
+              "explanation": "Stack follows Last-In-First-Out."
+            },
+            {
+              "id": "Q3",
+              "question": "Which method is commonly used for two-pointer technique on arrays?",
+              "options": ["Binary Search", "Sliding Window", "Hashing", "Greedy only"],
+              "correctAnswer": "Sliding Window",
+              "explanation": "Two pointers often form sliding window."
+            },
+            {
+              "id": "Q4",
+              "question": "In JavaScript, strings are:",
+              "options": ["Mutable", "Immutable", "Always arrays", "Always numbers"],
+              "correctAnswer": "Immutable",
+              "explanation": "Strings cannot be modified in-place."
+            },
+            {
+              "id": "Q5",
+              "question": "Best average-time data structure to check if an element exists (by key)?",
+              "options": ["Array", "Hash Map", "Stack", "Queue"],
+              "correctAnswer": "Hash Map",
+              "explanation": "Hash lookup average O(1)."
+            },
+            {
+              "id": "Q6",
+              "question": "Time complexity to find max in an unsorted array of size n:",
+              "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+              "correctAnswer": "O(n)",
+              "explanation": "Need one pass."
+            },
+            {
+              "id": "Q7",
+              "question": "A stable sort means:",
+              "options": [
+                "It sorts in O(1)",
+                "Equal elements keep their relative order",
+                "It always uses recursion",
+                "It uses no extra memory"
+              ],
+              "correctAnswer": "Equal elements keep their relative order",
+              "explanation": "Stability preserves relative order of duplicates."
+            },
+            {
+              "id": "Q8",
+              "question": "Which of these is NOT a comparison sort?",
+              "options": ["Quick Sort", "Merge Sort", "Heap Sort", "Counting Sort"],
+              "correctAnswer": "Counting Sort",
+              "explanation": "Counting sort uses counting, not comparisons."
+            },
+            {
+              "id": "Q9",
+              "question": "Binary search works on:",
+              "options": ["Any array", "Only sorted arrays", "Only linked lists", "Only stacks"],
+              "correctAnswer": "Only sorted arrays",
+              "explanation": "Requires sorted order."
+            },
+            {
+              "id": "Q10",
+              "question": "Time complexity of reversing a string of length n is:",
+              "options": ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+              "correctAnswer": "O(n)",
+              "explanation": "Need to process each character."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-DSA-002",
+        "title": "DSA Basics 02 (Linked List, Stack, Queue)",
+        "type": "quiz",
+        "category": "dsa",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": false
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Core Data Structures",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "In a singly linked list, each node contains:",
+              "options": ["Data only", "Pointer only", "Data + next pointer", "Two pointers always"],
+              "correctAnswer": "Data + next pointer",
+              "explanation": "Singly list points to next node."
+            },
+            {
+              "id": "Q2",
+              "question": "Best structure for FIFO is:",
+              "options": ["Stack", "Queue", "Heap", "Tree"],
+              "correctAnswer": "Queue",
+              "explanation": "Queue is First-In-First-Out."
+            },
+            {
+              "id": "Q3",
+              "question": "Push and pop operations happen at:",
+              "options": ["Queue front", "Queue rear", "Stack top", "Stack bottom"],
+              "correctAnswer": "Stack top",
+              "explanation": "Stack uses top for both operations."
+            },
+            {
+              "id": "Q4",
+              "question": "Time complexity of inserting at the head of a linked list:",
+              "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+              "correctAnswer": "O(1)",
+              "explanation": "Just change pointers."
+            },
+            {
+              "id": "Q5",
+              "question": "Which is a disadvantage of linked list over array?",
+              "options": [
+                "Dynamic size",
+                "O(1) insertion at head",
+                "No random access by index",
+                "Easy deletion"
+              ],
+              "correctAnswer": "No random access by index",
+              "explanation": "Linked list needs traversal."
+            },
+            {
+              "id": "Q6",
+              "question": "A queue implemented using array may suffer from:",
+              "options": ["Stack overflow", "Memory leak", "Wasted space without circular indexing", "No insertion"],
+              "correctAnswer": "Wasted space without circular indexing",
+              "explanation": "Circular queue avoids wasted space."
+            },
+            {
+              "id": "Q7",
+              "question": "Balanced parentheses checking commonly uses:",
+              "options": ["Queue", "Stack", "Heap", "Graph"],
+              "correctAnswer": "Stack",
+              "explanation": "Stack tracks open brackets."
+            },
+            {
+              "id": "Q8",
+              "question": "In a doubly linked list, each node has:",
+              "options": ["Only next pointer", "Only prev pointer", "Prev + next pointers", "No pointers"],
+              "correctAnswer": "Prev + next pointers",
+              "explanation": "Two pointers for bidirectional traversal."
+            },
+            {
+              "id": "Q9",
+              "question": "Which operation is O(1) in a queue (typical implementation)?",
+              "options": ["Search", "Enqueue", "Sort", "Reverse"],
+              "correctAnswer": "Enqueue",
+              "explanation": "Insert at rear is constant time."
+            },
+            {
+              "id": "Q10",
+              "question": "A stack can be implemented using:",
+              "options": ["Array", "Linked list", "Both", "Neither"],
+              "correctAnswer": "Both",
+              "explanation": "Both are common implementations."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-DSA-003",
+        "title": "DSA Basics 03 (Trees, Graphs, Complexity)",
+        "type": "quiz",
+        "category": "dsa",
+        "difficulty": "medium",
+        "durationMinutes": 30,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Trees & Graphs",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "A binary tree node can have at most:",
+              "options": ["1 child", "2 children", "3 children", "Unlimited"],
+              "correctAnswer": "2 children",
+              "explanation": "Binary = up to 2."
+            },
+            {
+              "id": "Q2",
+              "question": "In a BST, left subtree values are:",
+              "options": ["Greater", "Smaller", "Equal", "Random"],
+              "correctAnswer": "Smaller",
+              "explanation": "BST invariant."
+            },
+            {
+              "id": "Q3",
+              "question": "BFS traversal typically uses:",
+              "options": ["Stack", "Queue", "Recursion only", "Heap"],
+              "correctAnswer": "Queue",
+              "explanation": "BFS uses queue."
+            },
+            {
+              "id": "Q4",
+              "question": "DFS traversal typically uses:",
+              "options": ["Queue", "Stack/Recursion", "Heap", "Hash table"],
+              "correctAnswer": "Stack/Recursion",
+              "explanation": "DFS uses stack (explicit) or recursion."
+            },
+            {
+              "id": "Q5",
+              "question": "Time complexity of BFS/DFS on a graph with V vertices and E edges is:",
+              "options": ["O(V)", "O(E)", "O(V+E)", "O(VE)"],
+              "correctAnswer": "O(V+E)",
+              "explanation": "Visits all vertices/edges once."
+            },
+            {
+              "id": "Q6",
+              "question": "A complete binary tree means:",
+              "options": [
+                "All nodes have 2 children",
+                "All levels full except possibly last, filled left to right",
+                "Tree has no missing nodes",
+                "Tree height is minimal always"
+              ],
+              "correctAnswer": "All levels full except possibly last, filled left to right",
+              "explanation": "Definition of complete binary tree."
+            },
+            {
+              "id": "Q7",
+              "question": "Heap is mainly used to implement:",
+              "options": ["Stack", "Queue", "Priority Queue", "Hash Map"],
+              "correctAnswer": "Priority Queue",
+              "explanation": "Heap supports efficient min/max retrieval."
+            },
+            {
+              "id": "Q8",
+              "question": "Big-O of inserting into a balanced BST is:",
+              "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+              "correctAnswer": "O(log n)",
+              "explanation": "Height is log n."
+            },
+            {
+              "id": "Q9",
+              "question": "An adjacency matrix graph representation uses space:",
+              "options": ["O(V)", "O(E)", "O(V^2)", "O(V+E)"],
+              "correctAnswer": "O(V^2)",
+              "explanation": "Matrix of size V×V."
+            },
+            {
+              "id": "Q10",
+              "question": "Which algorithm finds shortest paths from a source in weighted graph with non-negative weights?",
+              "options": ["DFS", "BFS", "Dijkstra", "Kruskal"],
+              "correctAnswer": "Dijkstra",
+              "explanation": "Dijkstra handles non-negative weights."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

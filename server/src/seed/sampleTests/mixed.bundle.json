@@ -1,0 +1,220 @@
+{
+  "tests": [
+    {
+      "metadata": {
+        "id": "T-MIX-001",
+        "title": "Mixed Assessment 01 (CS Core + Coding)",
+        "type": "mixed",
+        "category": "mixed",
+        "difficulty": "medium",
+        "durationMinutes": 60,
+        "isPractice": false
+      },
+      "config": {
+        "questionCount": 8,
+        "negativeMarking": 0,
+        "scorePerTestcase": 10
+      },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "CS Core Quick Check",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Which HTTP method is typically used to create a resource?",
+              "options": ["GET", "POST", "PUT", "DELETE"],
+              "correctAnswer": "POST",
+              "explanation": "POST creates a new resource."
+            },
+            {
+              "id": "Q2",
+              "question": "In DBMS, a foreign key is used to:",
+              "options": ["Sort table", "Link tables", "Encrypt data", "Create duplicates"],
+              "correctAnswer": "Link tables",
+              "explanation": "Foreign key references another table’s primary key."
+            },
+            {
+              "id": "Q3",
+              "question": "TCP is:",
+              "options": ["Connectionless", "Connection-oriented", "Only for DNS", "A routing protocol"],
+              "correctAnswer": "Connection-oriented",
+              "explanation": "TCP establishes connection before transfer."
+            },
+            {
+              "id": "Q4",
+              "question": "Time complexity of binary search is:",
+              "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+              "correctAnswer": "O(log n)",
+              "explanation": "Halves search space each step."
+            },
+            {
+              "id": "Q5",
+              "question": "Which one is a NoSQL database?",
+              "options": ["MySQL", "PostgreSQL", "MongoDB", "Oracle"],
+              "correctAnswer": "MongoDB",
+              "explanation": "MongoDB is document-based NoSQL."
+            },
+            {
+              "id": "Q6",
+              "question": "In OS, a page fault occurs when:",
+              "options": [
+                "Page is in memory",
+                "Referenced page is not in memory",
+                "CPU is idle",
+                "Disk is full"
+              ],
+              "correctAnswer": "Referenced page is not in memory",
+              "explanation": "OS loads it from disk."
+            },
+            {
+              "id": "Q7",
+              "question": "OOP: 'One interface, many forms' refers to:",
+              "options": ["Encapsulation", "Inheritance", "Polymorphism", "Abstraction"],
+              "correctAnswer": "Polymorphism",
+              "explanation": "Polymorphism supports multiple implementations."
+            },
+            {
+              "id": "Q8",
+              "question": "JWT is mainly used for:",
+              "options": ["Storing images", "Authentication/Authorization", "Database indexing", "Caching"],
+              "correctAnswer": "Authentication/Authorization",
+              "explanation": "JWT carries claims for auth."
+            }
+          ]
+        },
+        {
+          "sectionType": "coding",
+          "title": "Coding Challenge",
+          "problems": [
+            {
+              "id": "P1",
+              "title": "Count Vowels",
+              "statement": "Given a string s, print the number of vowels (a,e,i,o,u) in s. Case-insensitive.",
+              "inputFormat": "A single line string s.",
+              "outputFormat": "An integer count.",
+              "constraints": "1 <= |s| <= 10^5",
+              "languages": ["javascript", "python"],
+              "starterCode": {
+                "javascript": "const fs = require('fs');\nconst s = fs.readFileSync(0,'utf8').trim();\n// TODO: count vowels and print\n",
+                "python": "import sys\ns = sys.stdin.read().strip()\n# TODO: count vowels and print\n"
+              },
+              "testcases": [
+                { "input": "hello\n", "output": "2\n", "isSample": true },
+                { "input": "AEIOU\n", "output": "5\n", "isSample": true },
+                { "input": "TalentTrack\n", "output": "3\n", "isSample": false },
+                { "input": "bcdfg\n", "output": "0\n", "isSample": false }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-MIX-002",
+        "title": "Mixed Assessment 02 (Aptitude + DSA Coding)",
+        "type": "mixed",
+        "category": "mixed",
+        "difficulty": "medium",
+        "durationMinutes": 70,
+        "isPractice": true
+      },
+      "config": {
+        "questionCount": 8,
+        "negativeMarking": 0,
+        "scorePerTestcase": 10
+      },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Aptitude Quick Check",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "If 40% of a number is 120, the number is:",
+              "options": ["200", "240", "280", "300"],
+              "correctAnswer": "300",
+              "explanation": "Number = 120/0.4 = 300."
+            },
+            {
+              "id": "Q2",
+              "question": "A can complete a work in 12 days, B in 18 days. Together they take:",
+              "options": ["6", "7.2", "8", "9"],
+              "correctAnswer": "7.2",
+              "explanation": "Rate=1/12+1/18=5/36 → time=36/5=7.2."
+            },
+            {
+              "id": "Q3",
+              "question": "A discount of 20% on ₹1500 equals:",
+              "options": ["₹200", "₹250", "₹300", "₹350"],
+              "correctAnswer": "₹300",
+              "explanation": "20% of 1500 = 300."
+            },
+            {
+              "id": "Q4",
+              "question": "Average of 6, 8, 10, 12 is:",
+              "options": ["8", "9", "10", "11"],
+              "correctAnswer": "9",
+              "explanation": "Sum=36, avg=9."
+            },
+            {
+              "id": "Q5",
+              "question": "If CP=₹500 and profit=20%, SP is:",
+              "options": ["₹550", "₹600", "₹650", "₹700"],
+              "correctAnswer": "₹600",
+              "explanation": "SP=500×1.2=600."
+            },
+            {
+              "id": "Q6",
+              "question": "A number increased by 10% becomes 110. Original number is:",
+              "options": ["90", "95", "100", "105"],
+              "correctAnswer": "100",
+              "explanation": "x×1.1=110 → x=100."
+            },
+            {
+              "id": "Q7",
+              "question": "Ratio of 15:20 simplifies to:",
+              "options": ["2:3", "3:4", "4:5", "5:6"],
+              "correctAnswer": "3:4",
+              "explanation": "Divide by 5."
+            },
+            {
+              "id": "Q8",
+              "question": "If 5 workers do a job in 10 days, 1 worker will take:",
+              "options": ["2", "10", "25", "50"],
+              "correctAnswer": "50",
+              "explanation": "Work=50 worker-days."
+            }
+          ]
+        },
+        {
+          "sectionType": "coding",
+          "title": "DSA Coding Challenge",
+          "problems": [
+            {
+              "id": "P1",
+              "title": "Maximum Subarray Sum",
+              "statement": "Given n and an array of n integers, print the maximum sum of any contiguous subarray.",
+              "inputFormat": "n\narr[0..n-1]\n",
+              "outputFormat": "Maximum subarray sum",
+              "constraints": "1 <= n <= 2*10^5, -10^9 <= arr[i] <= 10^9",
+              "languages": ["javascript", "python"],
+              "starterCode": {
+                "javascript": "const fs = require('fs');\nconst data = fs.readFileSync(0,'utf8').trim().split(/\\s+/);\nlet k=0;\nconst n = Number(data[k++]);\nconst arr = [];\nfor (let i=0;i<n;i++) arr.push(Number(data[k++]));\n// TODO: print max subarray sum\n",
+                "python": "import sys\ndata = sys.stdin.read().strip().split()\nk=0\nn=int(data[k]); k+=1\narr=list(map(int,data[k:k+n])); k+=n\n# TODO: print max subarray sum\n"
+              },
+              "testcases": [
+                { "input": "5\n1 -3 2 1 -1\n", "output": "3\n", "isSample": true },
+                { "input": "4\n-2 -3 -1 -4\n", "output": "-1\n", "isSample": true },
+                { "input": "6\n5 -2 3 4 -1 2\n", "output": "11\n", "isSample": false },
+                { "input": "1\n7\n", "output": "7\n", "isSample": false }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

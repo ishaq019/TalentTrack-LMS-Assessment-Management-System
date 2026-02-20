@@ -1,0 +1,36 @@
+{
+  "name": "lms-assessment-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LMS + Quiz/Coding Assessment backend (Node/Express + MongoDB) with JWT, OTP email verification, assignments, scoring, reports. No Redis.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint .",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.3",
+    "morgan": "^1.10.0",
+    "nanoid": "^5.0.7",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.15",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "nodemon": "^3.1.4"
+  }
+}

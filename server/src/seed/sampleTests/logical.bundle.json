@@ -1,0 +1,498 @@
+{
+  "tests": [
+    {
+      "metadata": {
+        "id": "T-LOG-001",
+        "title": "Logical Reasoning Basics 01",
+        "type": "quiz",
+        "category": "logical",
+        "difficulty": "easy",
+        "durationMinutes": 20,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Patterns & Deductions",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Find the next number in the series: 2, 4, 8, 16, ?",
+              "options": ["18", "24", "30", "32"],
+              "correctAnswer": "32",
+              "explanation": "Each term doubles."
+            },
+            {
+              "id": "Q2",
+              "question": "If ALL BLOOMS are FLOWERS and some FLOWERS are ROSES, then:",
+              "options": [
+                "All BLOOMS are ROSES",
+                "Some BLOOMS may be ROSES",
+                "No BLOOMS are ROSES",
+                "All ROSES are BLOOMS"
+              ],
+              "correctAnswer": "Some BLOOMS may be ROSES",
+              "explanation": "Possible overlap; not guaranteed."
+            },
+            {
+              "id": "Q3",
+              "question": "Which one is the odd one out?",
+              "options": ["Square", "Rectangle", "Triangle", "Circle"],
+              "correctAnswer": "Circle",
+              "explanation": "Circle has no straight sides."
+            },
+            {
+              "id": "Q4",
+              "question": "A is taller than B. B is taller than C. Who is tallest?",
+              "options": ["A", "B", "C", "Cannot decide"],
+              "correctAnswer": "A",
+              "explanation": "A > B > C."
+            },
+            {
+              "id": "Q5",
+              "question": "Find the missing letter: A, C, E, G, ?",
+              "options": ["H", "I", "J", "K"],
+              "correctAnswer": "I",
+              "explanation": "Skip one letter each time: A(+2)=C(+2)=E(+2)=G(+2)=I."
+            },
+            {
+              "id": "Q6",
+              "question": "If today is Monday, what day will it be after 15 days?",
+              "options": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+              "correctAnswer": "Tuesday",
+              "explanation": "15 mod 7 = 1 day ahead → Tuesday."
+            },
+            {
+              "id": "Q7",
+              "question": "Which number does not belong: 3, 5, 11, 14, 17",
+              "options": ["3", "5", "11", "14"],
+              "correctAnswer": "14",
+              "explanation": "All others are prime; 14 is not."
+            },
+            {
+              "id": "Q8",
+              "question": "A statement is false. Its negation is:",
+              "options": ["Always false", "Always true", "Sometimes true", "Cannot decide"],
+              "correctAnswer": "Always true",
+              "explanation": "Negation of a false statement is true."
+            },
+            {
+              "id": "Q9",
+              "question": "Find the next term: 1, 1, 2, 3, 5, ?",
+              "options": ["6", "7", "8", "9"],
+              "correctAnswer": "8",
+              "explanation": "Fibonacci sequence."
+            },
+            {
+              "id": "Q10",
+              "question": "If 5 machines make 5 items in 5 minutes, how long for 10 machines to make 10 items?",
+              "options": ["2.5 min", "5 min", "10 min", "15 min"],
+              "correctAnswer": "5 min",
+              "explanation": "Rate scales; same time for proportional increase."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-LOG-002",
+        "title": "Blood Relation & Direction 01",
+        "type": "quiz",
+        "category": "logical",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": false
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Relations & Directions",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Pointing to a man, Riya said, 'He is the son of my grandfather.' How is the man related to Riya? (Assume single family)",
+              "options": ["Brother", "Uncle", "Father", "Cousin"],
+              "correctAnswer": "Brother",
+              "explanation": "Son of her grandfather = her father or uncle; in common reasoning, same generation implies brother. (Assumption: grandfather's son who is not her father could be uncle; but typical exam intends brother if grandfather is paternal and implies her father’s son. Use as practice.)"
+            },
+            {
+              "id": "Q2",
+              "question": "A walks 10m north, then 10m east, then 10m south. How far is A from start?",
+              "options": ["0m", "10m", "20m", "30m"],
+              "correctAnswer": "10m",
+              "explanation": "Ends 10m east from start."
+            },
+            {
+              "id": "Q3",
+              "question": "If South becomes North and East becomes West, then North-East becomes:",
+              "options": ["South-West", "South-East", "North-West", "North-East"],
+              "correctAnswer": "South-West",
+              "explanation": "N→S and E→W."
+            },
+            {
+              "id": "Q4",
+              "question": "Pointing to a woman, Ram said, 'She is my mother's mother.' Who is she?",
+              "options": ["Aunt", "Grandmother", "Sister", "Mother"],
+              "correctAnswer": "Grandmother",
+              "explanation": "Mother’s mother = maternal grandmother."
+            },
+            {
+              "id": "Q5",
+              "question": "A man faces East, turns right, then right again. Now he faces:",
+              "options": ["East", "West", "North", "South"],
+              "correctAnswer": "West",
+              "explanation": "East → South → West."
+            },
+            {
+              "id": "Q6",
+              "question": "If P is Q's brother and Q is R's mother, then P is R's:",
+              "options": ["Father", "Uncle", "Brother", "Grandfather"],
+              "correctAnswer": "Uncle",
+              "explanation": "Mother’s brother = uncle."
+            },
+            {
+              "id": "Q7",
+              "question": "A goes 5km West then 3km North. Distance from start (straight line) is:",
+              "options": ["8", "5", "3", "√34"],
+              "correctAnswer": "√34",
+              "explanation": "Pythagoras: √(5²+3²)=√34."
+            },
+            {
+              "id": "Q8",
+              "question": "Pointing to a boy, Sita said, 'He is the only son of my father.' The boy is Sita's:",
+              "options": ["Brother", "Father", "Son", "Husband"],
+              "correctAnswer": "Brother",
+              "explanation": "Only son of her father = her brother."
+            },
+            {
+              "id": "Q9",
+              "question": "If a person walks 7 steps forward and 3 steps back repeatedly, net steps after 2 cycles is:",
+              "options": ["4", "7", "8", "10"],
+              "correctAnswer": "8",
+              "explanation": "Each cycle net=4. Two cycles net=8."
+            },
+            {
+              "id": "Q10",
+              "question": "A faces North. After turning left, he turns right, then right. He now faces:",
+              "options": ["North", "East", "West", "South"],
+              "correctAnswer": "East",
+              "explanation": "North → West → North → East."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-LOG-003",
+        "title": "Seating & Arrangement 01",
+        "type": "quiz",
+        "category": "logical",
+        "difficulty": "medium",
+        "durationMinutes": 30,
+        "isPractice": false
+      },
+      "config": { "questionCount": 8, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Arrangement Logic",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "In a row, A is to the left of B and B is to the left of C. Who is in the middle?",
+              "options": ["A", "B", "C", "Cannot decide"],
+              "correctAnswer": "B",
+              "explanation": "Order: A - B - C."
+            },
+            {
+              "id": "Q2",
+              "question": "Five friends sit in a line. If P sits at one end and Q sits next to P, then Q is:",
+              "options": ["At the other end", "Second from end", "Middle", "Cannot decide"],
+              "correctAnswer": "Second from end",
+              "explanation": "Next to an end seat is always second from end."
+            },
+            {
+              "id": "Q3",
+              "question": "If R is immediate right of S, then S is:",
+              "options": ["Immediate right of R", "Immediate left of R", "Opposite R", "Not related"],
+              "correctAnswer": "Immediate left of R",
+              "explanation": "Right/left are symmetric."
+            },
+            {
+              "id": "Q4",
+              "question": "Four people sit around a table facing center. If A is opposite B, then B is:",
+              "options": ["Adjacent to A", "Opposite A", "Left of A", "Right of A"],
+              "correctAnswer": "Opposite A",
+              "explanation": "Opposite relation is mutual."
+            },
+            {
+              "id": "Q5",
+              "question": "In a circular arrangement, everyone faces center. If A is to the left of B, then B is to the ____ of A.",
+              "options": ["left", "right", "opposite", "same place"],
+              "correctAnswer": "right",
+              "explanation": "If A is left of B, B is right of A."
+            },
+            {
+              "id": "Q6",
+              "question": "If A sits between B and C in a row, then A is:",
+              "options": ["At an end", "In the middle", "Left of both", "Right of both"],
+              "correctAnswer": "In the middle",
+              "explanation": "Between implies middle position."
+            },
+            {
+              "id": "Q7",
+              "question": "If there are 6 people in a line and X is 3rd from left, then X is also:",
+              "options": ["3rd from right", "4th from right", "2nd from right", "5th from right"],
+              "correctAnswer": "4th from right",
+              "explanation": "Position from right = 6-3+1 = 4."
+            },
+            {
+              "id": "Q8",
+              "question": "In a row, if A is 2nd and B is 4th, how many people are between A and B?",
+              "options": ["0", "1", "2", "3"],
+              "correctAnswer": "1",
+              "explanation": "Positions 2 and 4 → one person between."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-LOG-004",
+        "title": "Syllogisms & Statements 01",
+        "type": "quiz",
+        "category": "logical",
+        "difficulty": "medium",
+        "durationMinutes": 30,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Syllogisms",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Statements: All cats are animals. All animals are living. Conclusion: All cats are living.",
+              "options": ["True", "False", "Both", "Cannot say"],
+              "correctAnswer": "True",
+              "explanation": "Transitive inclusion."
+            },
+            {
+              "id": "Q2",
+              "question": "Statements: Some books are pens. All pens are tools. Conclusion: Some books are tools.",
+              "options": ["True", "False", "Both", "Cannot say"],
+              "correctAnswer": "True",
+              "explanation": "Some books that are pens are tools."
+            },
+            {
+              "id": "Q3",
+              "question": "Statements: No cars are bikes. Some bikes are red. Conclusion: Some cars are red.",
+              "options": ["True", "False", "Cannot say", "Both"],
+              "correctAnswer": "False",
+              "explanation": "Cars and bikes disjoint; no link to red cars."
+            },
+            {
+              "id": "Q4",
+              "question": "Statements: All A are B. Some B are C. Conclusion: Some A are C.",
+              "options": ["True", "False", "Cannot say", "Both"],
+              "correctAnswer": "Cannot say",
+              "explanation": "Some B being C doesn't guarantee those B are A."
+            },
+            {
+              "id": "Q5",
+              "question": "If statement is: 'All flowers are plants.' Which is definitely true?",
+              "options": [
+                "All plants are flowers",
+                "Some plants are flowers",
+                "No plants are flowers",
+                "Some flowers are not plants"
+              ],
+              "correctAnswer": "Some plants are flowers",
+              "explanation": "If flowers exist, they are plants, so plants include flowers."
+            },
+            {
+              "id": "Q6",
+              "question": "A statement and its contradiction can both be true.",
+              "options": ["True", "False", "Sometimes", "Cannot say"],
+              "correctAnswer": "False",
+              "explanation": "Contradiction cannot both be true."
+            },
+            {
+              "id": "Q7",
+              "question": "If 'Some students are smart', then which is the negation?",
+              "options": [
+                "All students are smart",
+                "No student is smart",
+                "Some students are not smart",
+                "All students are not smart"
+              ],
+              "correctAnswer": "No student is smart",
+              "explanation": "Negation of 'some are' is 'none are'."
+            },
+            {
+              "id": "Q8",
+              "question": "Statements: All engineers are graduates. Some graduates are athletes. Conclusion: Some engineers are athletes.",
+              "options": ["True", "False", "Cannot say", "Both"],
+              "correctAnswer": "Cannot say",
+              "explanation": "Overlap between engineers and athlete-graduates not guaranteed."
+            },
+            {
+              "id": "Q9",
+              "question": "If 'No A are B', then which is definitely true?",
+              "options": [
+                "Some A are B",
+                "All A are not B",
+                "All B are A",
+                "Some B are A"
+              ],
+              "correctAnswer": "All A are not B",
+              "explanation": "No A are B means A ⊆ not B."
+            },
+            {
+              "id": "Q10",
+              "question": "If statement is true, its negation is:",
+              "options": ["True", "False", "Both", "Cannot say"],
+              "correctAnswer": "False",
+              "explanation": "Negation flips truth value."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-LOG-005",
+        "title": "Logical Mixed Drill 01",
+        "type": "quiz",
+        "category": "logical",
+        "difficulty": "medium",
+        "durationMinutes": 35,
+        "isPractice": false
+      },
+      "config": { "questionCount": 12, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Mixed Reasoning",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Find the missing number: 5, 10, 20, 40, ?",
+              "options": ["45", "60", "80", "100"],
+              "correctAnswer": "80",
+              "explanation": "×2 pattern."
+            },
+            {
+              "id": "Q2",
+              "question": "Odd one out:",
+              "options": ["January", "March", "April", "Sunday"],
+              "correctAnswer": "Sunday",
+              "explanation": "Three are months; Sunday is a day."
+            },
+            {
+              "id": "Q3",
+              "question": "If 'PEN' is coded as 'QFO', then 'CAT' is coded as:",
+              "options": ["DBU", "DBS", "CBU", "DAS"],
+              "correctAnswer": "DBU",
+              "explanation": "Shift each letter by +1: C→D, A→B, T→U."
+            },
+            {
+              "id": "Q4",
+              "question": "A is B’s sister. C is B’s father. D is C’s mother. How is D related to A?",
+              "options": ["Grandmother", "Mother", "Aunt", "Sister"],
+              "correctAnswer": "Grandmother",
+              "explanation": "C is father; D is father's mother."
+            },
+            {
+              "id": "Q5",
+              "question": "Which diagram best represents: Some doctors are teachers, all teachers are writers?",
+              "options": [
+                "Doctors overlap Teachers; Teachers inside Writers",
+                "Doctors inside Teachers; Teachers overlap Writers",
+                "Teachers inside Doctors; Writers overlap Teachers",
+                "All three separate"
+              ],
+              "correctAnswer": "Doctors overlap Teachers; Teachers inside Writers",
+              "explanation": "Some D are T; all T are W."
+            },
+            {
+              "id": "Q6",
+              "question": "If 1 = A, 2 = B, ..., 26 = Z. What is 3-15-4-9-14-7?",
+              "options": ["CODING", "COMING", "COPING", "COSTING"],
+              "correctAnswer": "CODING",
+              "explanation": "3=C, 15=O, 4=D, 9=I, 14=N, 7=G."
+            },
+            {
+              "id": "Q7",
+              "question": "Find the next letter: Z, X, V, T, ?",
+              "options": ["S", "R", "Q", "P"],
+              "correctAnswer": "R",
+              "explanation": "Backward by 2 letters each step."
+            },
+            {
+              "id": "Q8",
+              "question": "If all squares are rectangles, which statement is true?",
+              "options": [
+                "All rectangles are squares",
+                "Some rectangles are squares",
+                "No rectangle is square",
+                "Squares are not rectangles"
+              ],
+              "correctAnswer": "Some rectangles are squares",
+              "explanation": "Squares are a subset of rectangles."
+            },
+            {
+              "id": "Q9",
+              "question": "A clock shows 3:15. The angle between hour and minute hand is:",
+              "options": ["0°", "7.5°", "15°", "22.5°"],
+              "correctAnswer": "7.5°",
+              "explanation": "Minute hand at 90°. Hour hand at 97.5°. Difference = 7.5°."
+            },
+            {
+              "id": "Q10",
+              "question": "If a statement is 'Either A or B is true', it is false when:",
+              "options": [
+                "Only A is true",
+                "Only B is true",
+                "Both A and B are true",
+                "Neither A nor B is true"
+              ],
+              "correctAnswer": "Neither A nor B is true",
+              "explanation": "Inclusive OR is false only when both are false."
+            },
+            {
+              "id": "Q11",
+              "question": "If 12 is 3 × 4 and 20 is 4 × 5, then 30 is:",
+              "options": ["5×6", "6×7", "3×10", "2×15"],
+              "correctAnswer": "5×6",
+              "explanation": "Pattern: n(n+1). 5×6=30."
+            },
+            {
+              "id": "Q12",
+              "question": "Choose the correct conclusion: All apples are fruits. Some fruits are sweet.",
+              "options": [
+                "Some apples are sweet",
+                "All apples are sweet",
+                "No apples are sweet",
+                "Cannot say"
+              ],
+              "correctAnswer": "Cannot say",
+              "explanation": "Sweet fruits may not include apples."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

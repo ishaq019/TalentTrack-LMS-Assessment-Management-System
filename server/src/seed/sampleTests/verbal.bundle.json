@@ -1,0 +1,534 @@
+{
+  "tests": [
+    {
+      "metadata": {
+        "id": "T-VRB-001",
+        "title": "Verbal Basics 01",
+        "type": "quiz",
+        "category": "verbal",
+        "difficulty": "easy",
+        "durationMinutes": 20,
+        "isPractice": true
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Grammar & Usage",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "He don't like coffee.",
+                "He doesn't like coffee.",
+                "He didn't likes coffee.",
+                "He not like coffee."
+              ],
+              "correctAnswer": "He doesn't like coffee.",
+              "explanation": "With 'he', use 'doesn't'."
+            },
+            {
+              "id": "Q2",
+              "question": "Fill in the blank: She has been working here ____ 2022.",
+              "options": ["since", "for", "from", "by"],
+              "correctAnswer": "since",
+              "explanation": "'Since' is used with a point in time."
+            },
+            {
+              "id": "Q3",
+              "question": "Choose the correct word: The manager will ____ the meeting at 10 AM.",
+              "options": ["conduct", "conductor", "conduction", "conducting"],
+              "correctAnswer": "conduct",
+              "explanation": "Verb form needed: conduct the meeting."
+            },
+            {
+              "id": "Q4",
+              "question": "Identify the error: 'Each of the students have submitted the assignment.'",
+              "options": [
+                "Each",
+                "students",
+                "have submitted",
+                "No error"
+              ],
+              "correctAnswer": "have submitted",
+              "explanation": "'Each' is singular → 'has submitted'."
+            },
+            {
+              "id": "Q5",
+              "question": "Choose the correct preposition: He is good ____ mathematics.",
+              "options": ["in", "at", "on", "with"],
+              "correctAnswer": "at",
+              "explanation": "Correct usage: good at."
+            },
+            {
+              "id": "Q6",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "Neither of the answers are correct.",
+                "Neither of the answers is correct.",
+                "Neither of the answer is correct.",
+                "Neither answers is correct."
+              ],
+              "correctAnswer": "Neither of the answers is correct.",
+              "explanation": "'Neither' takes singular verb."
+            },
+            {
+              "id": "Q7",
+              "question": "Fill in the blank: If I ____ time, I would help you.",
+              "options": ["have", "had", "will have", "has"],
+              "correctAnswer": "had",
+              "explanation": "Second conditional uses past simple."
+            },
+            {
+              "id": "Q8",
+              "question": "Choose the correct form: She ____ to the gym every day.",
+              "options": ["go", "goes", "going", "gone"],
+              "correctAnswer": "goes",
+              "explanation": "Third-person singular present: goes."
+            },
+            {
+              "id": "Q9",
+              "question": "Select the best synonym for 'brief':",
+              "options": ["short", "large", "slow", "loud"],
+              "correctAnswer": "short",
+              "explanation": "Brief means short."
+            },
+            {
+              "id": "Q10",
+              "question": "Choose the best antonym for 'expand':",
+              "options": ["increase", "grow", "shrink", "extend"],
+              "correctAnswer": "shrink",
+              "explanation": "Opposite of expand is shrink."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-VRB-002",
+        "title": "Verbal Basics 02",
+        "type": "quiz",
+        "category": "verbal",
+        "difficulty": "easy",
+        "durationMinutes": 25,
+        "isPractice": false
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Vocabulary & Fillers",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Choose the word that best fits: He was ____ to accept the offer without reading the terms.",
+              "options": ["reluctant", "hasty", "careful", "patient"],
+              "correctAnswer": "hasty",
+              "explanation": "Hasty means too quick without thinking."
+            },
+            {
+              "id": "Q2",
+              "question": "Synonym of 'assist' is:",
+              "options": ["help", "harm", "ignore", "deny"],
+              "correctAnswer": "help",
+              "explanation": "Assist = help."
+            },
+            {
+              "id": "Q3",
+              "question": "Antonym of 'transparent' is:",
+              "options": ["clear", "visible", "opaque", "bright"],
+              "correctAnswer": "opaque",
+              "explanation": "Opaque is not see-through."
+            },
+            {
+              "id": "Q4",
+              "question": "Fill in the blank: The movie was so ____ that I fell asleep.",
+              "options": ["exciting", "boring", "thrilling", "funny"],
+              "correctAnswer": "boring",
+              "explanation": "Context suggests dull."
+            },
+            {
+              "id": "Q5",
+              "question": "Choose correct spelling:",
+              "options": ["Definately", "Definitely", "Definetely", "Definatly"],
+              "correctAnswer": "Definitely",
+              "explanation": "Correct spelling: Definitely."
+            },
+            {
+              "id": "Q6",
+              "question": "Choose the correct word: He spoke in a very ____ manner.",
+              "options": ["polite", "politely", "politeness", "politing"],
+              "correctAnswer": "polite",
+              "explanation": "Adjective needed before noun manner."
+            },
+            {
+              "id": "Q7",
+              "question": "Synonym of 'ancient' is:",
+              "options": ["old", "new", "future", "young"],
+              "correctAnswer": "old",
+              "explanation": "Ancient = very old."
+            },
+            {
+              "id": "Q8",
+              "question": "Fill in the blank: The teacher asked us to ____ our essays by Friday.",
+              "options": ["submit", "submits", "submitted", "submitting"],
+              "correctAnswer": "submit",
+              "explanation": "Infinitive after 'to'."
+            },
+            {
+              "id": "Q9",
+              "question": "Antonym of 'approve' is:",
+              "options": ["accept", "support", "reject", "praise"],
+              "correctAnswer": "reject",
+              "explanation": "Reject is opposite of approve."
+            },
+            {
+              "id": "Q10",
+              "question": "Choose the best synonym for 'tiny':",
+              "options": ["small", "heavy", "broad", "tall"],
+              "correctAnswer": "small",
+              "explanation": "Tiny means small."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-VRB-003",
+        "title": "Sentence Correction 01",
+        "type": "quiz",
+        "category": "verbal",
+        "difficulty": "medium",
+        "durationMinutes": 30,
+        "isPractice": false
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Sentence Correction",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "The team are playing well.",
+                "The team is playing well.",
+                "The teams is playing well.",
+                "The team were playing well."
+              ],
+              "correctAnswer": "The team is playing well.",
+              "explanation": "Collective noun treated as singular here."
+            },
+            {
+              "id": "Q2",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "I prefer tea than coffee.",
+                "I prefer tea to coffee.",
+                "I prefer tea over than coffee.",
+                "I prefer tea with coffee."
+              ],
+              "correctAnswer": "I prefer tea to coffee.",
+              "explanation": "Correct structure: prefer X to Y."
+            },
+            {
+              "id": "Q3",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "He is one of the student who works hard.",
+                "He is one of the students who work hard.",
+                "He is one of the students who working hard.",
+                "He is one of the student who work hard."
+              ],
+              "correctAnswer": "He is one of the students who work hard.",
+              "explanation": "Plural students → who work."
+            },
+            {
+              "id": "Q4",
+              "question": "Identify the correct form: Neither the manager nor the employees ____ responsible.",
+              "options": ["is", "are", "was", "be"],
+              "correctAnswer": "are",
+              "explanation": "Verb agrees with nearer noun (employees)."
+            },
+            {
+              "id": "Q5",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "She suggested me to apply.",
+                "She suggested that I apply.",
+                "She suggested that I applied.",
+                "She suggested I to apply."
+              ],
+              "correctAnswer": "She suggested that I apply.",
+              "explanation": "Correct: suggested that + base verb."
+            },
+            {
+              "id": "Q6",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "Despite of the rain, we went out.",
+                "Despite the rain, we went out.",
+                "Despite the raining, we went out.",
+                "Despite rain, we went outed."
+              ],
+              "correctAnswer": "Despite the rain, we went out.",
+              "explanation": "'Despite' does not take 'of'."
+            },
+            {
+              "id": "Q7",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "He did not knew the answer.",
+                "He did not know the answer.",
+                "He did not known the answer.",
+                "He did not knowing the answer."
+              ],
+              "correctAnswer": "He did not know the answer.",
+              "explanation": "After did, use base verb."
+            },
+            {
+              "id": "Q8",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "If I will see him, I will tell him.",
+                "If I see him, I will tell him.",
+                "If I saw him, I will tell him.",
+                "If I seen him, I tell him."
+              ],
+              "correctAnswer": "If I see him, I will tell him.",
+              "explanation": "First conditional: if + present, will + base."
+            },
+            {
+              "id": "Q9",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "The number of students are increasing.",
+                "The number of students is increasing.",
+                "A number of students is increasing.",
+                "The number of student are increasing."
+              ],
+              "correctAnswer": "The number of students is increasing.",
+              "explanation": "'The number' is singular."
+            },
+            {
+              "id": "Q10",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "She is senior than me.",
+                "She is senior to me.",
+                "She is more senior than me.",
+                "She is senior with me."
+              ],
+              "correctAnswer": "She is senior to me.",
+              "explanation": "Correct usage: senior to."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-VRB-004",
+        "title": "Reading Comprehension 01",
+        "type": "quiz",
+        "category": "verbal",
+        "difficulty": "medium",
+        "durationMinutes": 35,
+        "isPractice": true
+      },
+      "config": { "questionCount": 8, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "RC Passage",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Passage: \"Regular exercise improves cardiovascular health, boosts mood, and increases energy levels. Even 20 minutes a day can make a difference.\" What is the main idea?",
+              "options": [
+                "Exercise is only for athletes",
+                "Regular exercise provides multiple health benefits",
+                "Exercise is time-consuming",
+                "Energy levels never improve"
+              ],
+              "correctAnswer": "Regular exercise provides multiple health benefits",
+              "explanation": "The passage lists benefits as main point."
+            },
+            {
+              "id": "Q2",
+              "question": "From the passage, how much exercise can make a difference?",
+              "options": ["5 minutes", "10 minutes", "20 minutes", "2 hours"],
+              "correctAnswer": "20 minutes",
+              "explanation": "Explicitly stated."
+            },
+            {
+              "id": "Q3",
+              "question": "Which is NOT mentioned as a benefit in the passage?",
+              "options": ["Better heart health", "Boosts mood", "Increases energy", "Improves eyesight"],
+              "correctAnswer": "Improves eyesight",
+              "explanation": "Eyesight not mentioned."
+            },
+            {
+              "id": "Q4",
+              "question": "The tone of the passage is:",
+              "options": ["Discouraging", "Informative and encouraging", "Angry", "Sarcastic"],
+              "correctAnswer": "Informative and encouraging",
+              "explanation": "It informs and motivates."
+            },
+            {
+              "id": "Q5",
+              "question": "Passage implies exercise should be:",
+              "options": ["Avoided daily", "Done regularly", "Only done weekly", "Only done when tired"],
+              "correctAnswer": "Done regularly",
+              "explanation": "It says regular exercise improves health."
+            },
+            {
+              "id": "Q6",
+              "question": "The passage best supports the idea that:",
+              "options": [
+                "Short routines are useless",
+                "Small consistent habits can be effective",
+                "Only intense workouts matter",
+                "Exercise reduces energy"
+              ],
+              "correctAnswer": "Small consistent habits can be effective",
+              "explanation": "Even 20 minutes daily helps."
+            },
+            {
+              "id": "Q7",
+              "question": "What does 'cardiovascular' relate to?",
+              "options": ["Skin", "Heart and blood vessels", "Bones", "Hair"],
+              "correctAnswer": "Heart and blood vessels",
+              "explanation": "Meaning of cardiovascular."
+            },
+            {
+              "id": "Q8",
+              "question": "Best title for the passage:",
+              "options": [
+                "Why Exercise Is Impossible",
+                "Benefits of Regular Exercise",
+                "Energy Drinks Work Better",
+                "Only Athletes Should Train"
+              ],
+              "correctAnswer": "Benefits of Regular Exercise",
+              "explanation": "Summarizes content."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "metadata": {
+        "id": "T-VRB-005",
+        "title": "Verbal Mixed Drill 01",
+        "type": "quiz",
+        "category": "verbal",
+        "difficulty": "medium",
+        "durationMinutes": 30,
+        "isPractice": false
+      },
+      "config": { "questionCount": 10, "negativeMarking": 0 },
+      "sections": [
+        {
+          "sectionType": "quiz",
+          "title": "Mixed Verbal",
+          "questions": [
+            {
+              "id": "Q1",
+              "question": "Choose the correct word: The new policy will ____ many employees.",
+              "options": ["effect", "affect", "affection", "effective"],
+              "correctAnswer": "affect",
+              "explanation": "Affect is usually a verb meaning influence."
+            },
+            {
+              "id": "Q2",
+              "question": "Synonym of 'rapid' is:",
+              "options": ["slow", "quick", "weak", "late"],
+              "correctAnswer": "quick",
+              "explanation": "Rapid = quick."
+            },
+            {
+              "id": "Q3",
+              "question": "Antonym of 'scarce' is:",
+              "options": ["rare", "plentiful", "tiny", "few"],
+              "correctAnswer": "plentiful",
+              "explanation": "Scarce = not enough; opposite plentiful."
+            },
+            {
+              "id": "Q4",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "She has less books than me.",
+                "She has fewer books than me.",
+                "She has fewest books than me.",
+                "She has lesser books than me."
+              ],
+              "correctAnswer": "She has fewer books than me.",
+              "explanation": "Fewer for countable nouns."
+            },
+            {
+              "id": "Q5",
+              "question": "Choose the best meaning of 'inevitable':",
+              "options": ["avoidable", "certain to happen", "confusing", "illegal"],
+              "correctAnswer": "certain to happen",
+              "explanation": "Inevitable = unavoidable."
+            },
+            {
+              "id": "Q6",
+              "question": "Pick the correctly punctuated sentence:",
+              "options": [
+                "Lets eat, Grandma!",
+                "Lets eat Grandma!",
+                "Lets, eat Grandma!",
+                "Lets eat Grandma."
+              ],
+              "correctAnswer": "Lets eat, Grandma!",
+              "explanation": "Comma changes meaning."
+            },
+            {
+              "id": "Q7",
+              "question": "Choose the correct form: By the time you arrive, we ____ dinner.",
+              "options": ["finish", "finished", "will have finished", "had finished"],
+              "correctAnswer": "will have finished",
+              "explanation": "Future perfect for completed action before a future time."
+            },
+            {
+              "id": "Q8",
+              "question": "Synonym of 'commend' is:",
+              "options": ["praise", "blame", "forget", "hide"],
+              "correctAnswer": "praise",
+              "explanation": "Commend = praise."
+            },
+            {
+              "id": "Q9",
+              "question": "Choose the correct sentence:",
+              "options": [
+                "The information are accurate.",
+                "The information is accurate.",
+                "The informations are accurate.",
+                "Information were accurate."
+              ],
+              "correctAnswer": "The information is accurate.",
+              "explanation": "Information is uncountable → singular."
+            },
+            {
+              "id": "Q10",
+              "question": "Best antonym for 'optimistic':",
+              "options": ["hopeful", "positive", "pessimistic", "excited"],
+              "correctAnswer": "pessimistic",
+              "explanation": "Opposite of optimistic."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

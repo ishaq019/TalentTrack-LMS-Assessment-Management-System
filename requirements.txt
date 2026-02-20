@@ -1,0 +1,15 @@
+express
+mongoose
+dotenv
+cors
+helmet
+morgan
+bcrypt
+jsonwebtoken
+nodemailer
+zod
+nanoid
+express-rate-limit
+node-cron
+nodemon
+eslint
