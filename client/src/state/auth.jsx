@@ -2,16 +2,10 @@
 import React, { createContext, useContext, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API_BASE_URL from "@/config/api.js";
 
 const ACCESS_KEY = "talenttrack_access_token";
 const REFRESH_KEY = "talenttrack_refresh_token";
-
-/**
- * Backend base URL
- * Set in: client/.env
- * VITE_API_BASE_URL="http://localhost:8080"
- */
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 
 /** ------------------ LocalStorage helpers ------------------ */
 function getTokens() {

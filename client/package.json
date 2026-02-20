@@ -3,11 +3,15 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://syedishaq.me/TalentTrack-LMS-Assessment-Management-System",
+
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --host",
-    "lint": "eslint ."
+    "lint": "eslint .",
+   "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",

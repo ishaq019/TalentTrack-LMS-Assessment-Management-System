@@ -19,11 +19,24 @@ const app = express();
 /**
  * 1) Environment validation (fail fast)
  */
-const REQUIRED_ENVS = ["MONGO_URI", "JWT_ACCESS_SECRET", "SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"];
-for (const key of REQUIRED_ENVS) {
-  if (!process.env[key]) {
-    console.error(`[ENV ERROR] Missing required env: ${key}`);
-    process.exit(1);
+const REQUIRED_ENVS = [
+  "MONGO_URI", 
+  "JWT_ACCESS_SECRET", 
+  "SMTP_HOST", 
+  "SMTP_PORT", 
+  "SMTP_USER", 
+  "SMTP_PASS"
+];
+
+// Only validate on startup (not on Vercel's build phase)
+if (process.env.VERCEL !== "1" || process.env.VERCEL_ENV) {
+  for (const key of REQUIRED_ENVS) {
+    if (!process.env[key]) {
+      console.error(`[ENV ERROR] Missing required env: ${key}`);
+      if (process.env.VERCEL !== "1") {
+        process.exit(1);
+      }
+    }
   }
 }
 
@@ -37,15 +50,17 @@ const ALLOWED_ORIGINS = [
   "http://localhost:5173",
   "http://localhost:3000",
   "http://127.0.0.1:5173",
+  process.env.FRONTEND_URL, // Add your deployed frontend URL in Vercel env vars
   "https://syedishaq.me",
   "https://www.syedishaq.me",
-];
+].filter(Boolean); // Remove undefined values
 
-// Allow any *.github.io subdomain
+// Allow any *.github.io subdomain or *.vercel.app
 function isAllowedOrigin(origin) {
   if (!origin) return true; // allow server-to-server / Postman
   if (ALLOWED_ORIGINS.includes(origin)) return true;
   if (/^https:\/\/[\w-]+\.github\.io$/i.test(origin)) return true;
+  if (/^https:\/\/[\w-]+\.vercel\.app$/i.test(origin)) return true; // Allow Vercel preview URLs
   return false;
 }
 
