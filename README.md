@@ -5,14 +5,15 @@ Place your banner image at: client/src/assets/banner.png
 Or update the path below to match your setup.
 ========================= -->
 
-<p align="center">
-  <img src="./client/src/assets/banner.png" alt="TalentTrack Banner" width="100%" />
-</p>
+
 
 <h1 align="center">🎓 TalentTrack — LMS & Assessment Management System</h1>
 
 <p align="center">
   A full-stack Learning Management + Assessment platform for quizzes, coding tests, assignments, submissions, and reporting — built for teams and training programs.
+</p>
+<p align="center">
+  <img src="./client/src/assets/banner.png" alt="TalentTrack Banner" width="100%" />
 </p>
 
 <p align="center">
