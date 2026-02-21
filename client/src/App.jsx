@@ -26,6 +26,8 @@ import AdminTests from "./pages/admin/AdminTests.jsx";
 import AdminAssignments from "./pages/admin/AdminAssignments.jsx";
 import AdminSubmissions from "./pages/admin/AdminSubmissions.jsx";
 
+import HomePage from "./pages/HomePage.jsx";
+
 function RequireAuth({ children }) {
   const { isReady, isAuthed } = useAuth();
   if (!isReady) return null;
@@ -63,7 +65,7 @@ function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/" element={<RootRedirect />} />
+      <Route path="/" element={<HomePage />} />
 
       {/* ---------- Auth ---------- */}
       <Route element={<AuthLayout />}>

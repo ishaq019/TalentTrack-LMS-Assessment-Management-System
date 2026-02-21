@@ -1,6 +1,7 @@
 // client/src/constants/routes.js
 export const ROUTES = {
   // Public
+  HOME: "/",
   ROOT: "/",
   LOGIN: "/login",
   SIGNUP: "/signup",
