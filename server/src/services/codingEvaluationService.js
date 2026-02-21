@@ -91,36 +91,54 @@ async function evaluateCoding({ testDoc, codingSubmissions }) {
     const sample = allTestcases.filter((t) => t.isSample === true);
     const hidden = allTestcases.filter((t) => t.isSample !== true);
 
-    // Evaluate sample first (these are visible)
-    const sampleRun = await runCodeOnRunner({
-      language,
-      sourceCode,
-      testcases: sample.map((t) => ({ input: t.input, output: t.output }))
-    });
-
-    const sampleResults = sample.map((tc, idx) => ({
-      input: tc.input,
-      expectedOutput: tc.output,
-      actualOutput: sampleRun[idx]?.actualOutput ?? "",
-      passed: Boolean(sampleRun[idx]?.passed),
-      runtimeMs: sampleRun[idx]?.runtimeMs ?? null,
-      error: sampleRun[idx]?.error ?? ""
-    }));
-
-    // Evaluate hidden (store only summary)
+    let sampleResults = [];
     let hiddenPassed = 0;
-    if (hidden.length > 0) {
-      const hiddenRun = await runCodeOnRunner({
-        language,
-        sourceCode,
-        testcases: hidden.map((t) => ({ input: t.input, output: t.output }))
-      });
 
-      hiddenPassed = hiddenRun.reduce((acc, r) => acc + (r?.passed ? 1 : 0), 0);
-      totalPassed += hiddenPassed; // count hidden passed
+    try {
+      // Evaluate sample testcases (these are visible to student)
+      if (sample.length > 0) {
+        const sampleRun = await runCodeOnRunner({
+          language,
+          sourceCode,
+          testcases: sample.map((t) => ({ input: t.input, output: t.output }))
+        });
+
+        sampleResults = sample.map((tc, idx) => ({
+          input: tc.input,
+          expectedOutput: tc.output,
+          actualOutput: sampleRun[idx]?.actualOutput ?? "",
+          passed: Boolean(sampleRun[idx]?.passed),
+          runtimeMs: sampleRun[idx]?.runtimeMs ?? null,
+          error: sampleRun[idx]?.error ?? ""
+        }));
+      }
+
+      // Evaluate hidden testcases (store only summary)
+      if (hidden.length > 0) {
+        const hiddenRun = await runCodeOnRunner({
+          language,
+          sourceCode,
+          testcases: hidden.map((t) => ({ input: t.input, output: t.output }))
+        });
+
+        hiddenPassed = hiddenRun.reduce((acc, r) => acc + (r?.passed ? 1 : 0), 0);
+        totalPassed += hiddenPassed; // count hidden passed
+      }
+    } catch (runnerError) {
+      console.error(`[codingEval] Runner error for problem ${p.id}:`, runnerError?.message || runnerError);
+
+      // Return error results instead of crashing the entire submission
+      sampleResults = sample.map((tc) => ({
+        input: tc.input,
+        expectedOutput: tc.output,
+        actualOutput: "",
+        passed: false,
+        runtimeMs: null,
+        error: runnerError?.message || "Code runner unavailable"
+      }));
     }
 
-    // Count all cases passed:
+    // Count sample cases passed:
     const samplePassed = sampleResults.reduce((acc, r) => acc + (r.passed ? 1 : 0), 0);
     totalPassed += samplePassed;
 

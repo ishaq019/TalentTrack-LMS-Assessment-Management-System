@@ -25,20 +25,31 @@ async function runCodeOnRunner({ language, sourceCode, testcases }) {
 
   const url = `${baseUrl.replace(/\/$/, "")}/run`;
 
-  const resp = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-RUNNER-SECRET": secret
-    },
-    body: JSON.stringify({
-      language,
-      sourceCode,
-      testcases,
-      timeoutMs,
-      maxOutputChars
-    })
-  });
+  // Set a fetch-level timeout (runner cold start can be slow)
+  const fetchTimeoutMs = Math.max(timeoutMs * 3, 30000); // at least 30s for cold starts
+  const controller = new AbortController();
+  const fetchTimer = setTimeout(() => controller.abort(), fetchTimeoutMs);
+
+  let resp;
+  try {
+    resp = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-RUNNER-SECRET": secret
+      },
+      body: JSON.stringify({
+        language,
+        sourceCode,
+        testcases,
+        timeoutMs,
+        maxOutputChars
+      }),
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(fetchTimer);
+  }
 
   const data = await resp.json().catch(() => null);
 

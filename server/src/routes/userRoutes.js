@@ -9,6 +9,7 @@ const {
   startAssignment,
   getMyAssignmentDetail,
   submitAssignment,
+  runCodeDuringAssignment,
   getMyDashboard,
   listPracticeTests,
   startPractice
@@ -49,6 +50,7 @@ router.get("/assignments", listMyAssignments);
 router.post("/assignments/:assignmentId/start", startAssignment);
 router.get("/assignments/:assignmentId", getMyAssignmentDetail);
 router.post("/assignments/:assignmentId/submit", submitAssignment);
+router.post("/assignments/:assignmentId/run-code", runCodeDuringAssignment);
 
 // Practice tests
 router.get("/practice-tests", listPracticeTests);

@@ -1,9 +1,11 @@
 // server/src/controllers/userAssignmentController.js
+const mongoose = require("mongoose");
 const Assignment = require("../models/Assignment");
 const Submission = require("../models/Submission");
 const Test = require("../models/Test");
 const { scoreSubmission } = require("../services/scoringService");
 const { sendResultEmails } = require("../services/resultEmailService");
+const { runCodeOnRunner } = require("../services/codeRunnerClient");
 
 /**
  * Helper: check expiry and mark assignment expired if needed.
@@ -263,11 +265,144 @@ async function submitAssignment(req, res, next) {
   }
 }
 
+/**
+ * POST /me/assignments/:assignmentId/run-code
+ * Body: { problemId, language, sourceCode, customInput? }
+ *
+ * Run student code against either sample testcases or a custom input.
+ * Returns detailed results for each testcase (pass/fail, output, runtime).
+ */
+async function runCodeDuringAssignment(req, res, next) {
+  try {
+    const userId = req.user.id;
+    const { assignmentId } = req.params;
+    const { problemId, language, sourceCode, customInput } = req.body;
+
+    if (!problemId || !language || !sourceCode) {
+      return res.status(400).json({ ok: false, error: "problemId, language, and sourceCode are required." });
+    }
+
+    const assignment = await Assignment.findOne({ _id: assignmentId, assignedTo: userId });
+    if (!assignment) return res.status(404).json({ ok: false, error: "Assignment not found." });
+
+    // Must be in progress to run code
+    if (assignment.status !== "in_progress") {
+      return res.status(400).json({ ok: false, error: "Assignment is not in progress." });
+    }
+
+    const exp = await ensureNotExpired(assignment);
+    if (!exp.ok) return res.status(403).json(exp);
+
+    const testDoc = await Test.findById(assignment.testId);
+    if (!testDoc || !testDoc.isActive) {
+      return res.status(404).json({ ok: false, error: "Test not found or inactive." });
+    }
+
+    // Find the coding problem by ID
+    let problem = null;
+    for (const section of testDoc.sections || []) {
+      if (section.sectionType !== "coding") continue;
+      for (const p of section.problems || []) {
+        if (String(p.id) === String(problemId)) {
+          problem = p;
+          break;
+        }
+      }
+      if (problem) break;
+    }
+
+    if (!problem) {
+      return res.status(404).json({ ok: false, error: "Problem not found in test." });
+    }
+
+    // Validate language
+    const allowed = problem.languages || ["javascript", "python"];
+    if (!allowed.includes(language)) {
+      return res.status(400).json({ ok: false, error: `Language not allowed. Use: ${allowed.join(", ")}` });
+    }
+
+    // If customInput is provided, run against that single input (no expected output comparison)
+    if (typeof customInput === "string") {
+      try {
+        const results = await runCodeOnRunner({
+          language,
+          sourceCode,
+          testcases: [{ input: customInput, output: "" }]
+        });
+
+        const r = results[0] || {};
+        return res.json({
+          ok: true,
+          mode: "custom",
+          results: [{
+            input: customInput,
+            actualOutput: r.actualOutput ?? "",
+            runtimeMs: r.runtimeMs ?? null,
+            error: r.error ?? ""
+          }]
+        });
+      } catch (runErr) {
+        return res.json({
+          ok: true,
+          mode: "custom",
+          results: [{
+            input: customInput,
+            actualOutput: "",
+            runtimeMs: null,
+            error: runErr?.message || "Code runner unavailable"
+          }]
+        });
+      }
+    }
+
+    // Default: run against SAMPLE testcases only (never expose hidden)
+    const sampleCases = (problem.testcases || []).filter((tc) => tc.isSample === true);
+    if (sampleCases.length === 0) {
+      return res.json({ ok: true, mode: "sample", results: [], message: "No sample testcases." });
+    }
+
+    try {
+      const runResults = await runCodeOnRunner({
+        language,
+        sourceCode,
+        testcases: sampleCases.map((tc) => ({ input: tc.input, output: tc.output }))
+      });
+
+      const results = sampleCases.map((tc, idx) => ({
+        input: tc.input,
+        expectedOutput: tc.output,
+        actualOutput: runResults[idx]?.actualOutput ?? "",
+        passed: Boolean(runResults[idx]?.passed),
+        runtimeMs: runResults[idx]?.runtimeMs ?? null,
+        error: runResults[idx]?.error ?? ""
+      }));
+
+      return res.json({ ok: true, mode: "sample", results });
+    } catch (runErr) {
+      return res.json({
+        ok: true,
+        mode: "sample",
+        results: sampleCases.map((tc) => ({
+          input: tc.input,
+          expectedOutput: tc.output,
+          actualOutput: "",
+          passed: false,
+          runtimeMs: null,
+          error: runErr?.message || "Code runner unavailable"
+        }))
+      });
+    }
+  } catch (err) {
+    return next(err);
+  }
+}
+
 module.exports = {
   listMyAssignments,
   startAssignment,
   getMyAssignmentDetail,
   submitAssignment,
+  runCodeDuringAssignment,
   getMyDashboard,
   listPracticeTests,
   startPractice
@@ -343,7 +478,16 @@ async function startPractice(req, res, next) {
       return res.status(400).json({ ok: false, error: "testId is required" });
     }
 
-    const test = await Test.findById(testId);
+    // Support lookup by MongoDB _id or by metadata.id string
+    let test = null;
+    if (mongoose.Types.ObjectId.isValid(testId)) {
+      test = await Test.findById(testId);
+    }
+    // Fallback: find by metadata.id (for catalog / template IDs like "T-CODE-001")
+    if (!test) {
+      test = await Test.findOne({ "metadata.id": testId, isActive: true });
+    }
+
     if (!test || !test.isActive) {
       return res.status(404).json({ ok: false, error: "Test not found or inactive" });
     }
