@@ -8,6 +8,6 @@
 // export const API_BASE_URL = "https://talent-track-lms-assessment-managem.vercel.app";
 
 // For local development, uncomment below and comment production URL
-export const API_BASE_URL = "http://localhost:8080";
+export const API_BASE_URL = "https://talent-track-lms-assessment-managem.vercel.app";
 
 export default API_BASE_URL;
