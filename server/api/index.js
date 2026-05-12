@@ -34,8 +34,52 @@ async function ensureSeeded() {
   return seedPromise;
 }
 
+// Routes that must work even when MongoDB is unreachable / misconfigured.
+// Without this, a bad MONGO_URI turns every URL (including / and /favicon.ico)
+// into a 500 with a leaked stack trace.
+const DB_LESS_PATHS = new Set(["/", "/favicon.ico", "/favicon.png", "/health", "/robots.txt"]);
+
 module.exports = async (req, res) => {
-  await connectDB();
+  const url = (req.url || "/").split("?")[0];
+
+  // Friendly root response — no DB needed.
+  if (req.method === "GET" && url === "/") {
+    res.setHeader("Content-Type", "application/json");
+    res.statusCode = 200;
+    return res.end(JSON.stringify({
+      ok: true,
+      brand: "TalentTrack",
+      service: "lms-assessment-backend",
+      message: "API is running. See /health.",
+      time: new Date().toISOString()
+    }));
+  }
+
+  // Silently 204 these – browsers request favicons against the API origin.
+  if (req.method === "GET" && (url === "/favicon.ico" || url === "/favicon.png" || url === "/robots.txt")) {
+    res.statusCode = 204;
+    return res.end();
+  }
+
+  // /health works without DB so platform health checks still pass during DB outages.
+  if (DB_LESS_PATHS.has(url)) {
+    return app(req, res);
+  }
+
+  try {
+    await connectDB();
+  } catch (e) {
+    console.error("[DB] Unavailable for request:", req.method, url, "-", e?.message || e);
+    res.setHeader("Content-Type", "application/json");
+    res.statusCode = 503;
+    return res.end(JSON.stringify({
+      ok: false,
+      error: "Database unavailable. Check MONGO_URI configuration.",
+      // Surface a concise reason in non-production for easier debugging.
+      reason: process.env.NODE_ENV === "production" ? undefined : (e?.message || String(e))
+    }));
+  }
+
   // Best-effort seed; don't block requests if it fails
   ensureSeeded().catch(() => {});
   return app(req, res);
