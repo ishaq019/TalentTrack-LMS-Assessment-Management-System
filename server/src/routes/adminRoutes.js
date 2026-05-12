@@ -7,6 +7,7 @@ const { requireRole } = require("../middleware/requireRole");
 const { createTest, listTests, toggleTestActive } = require("../controllers/adminTestController");
 const { assignTest, listAssignments } = require("../controllers/adminAssignmentController");
 const { getAdminSubmissionByAssignment, listAllSubmissions } = require("../controllers/submissionController");
+const { seedTests } = require("../seed/seedTests");
 
 const User = require("../models/User");
 const Assignment = require("../models/Assignment");
@@ -22,6 +23,20 @@ router.use(requireRole("admin"));
 router.post("/tests", createTest);
 router.get("/tests", listTests);
 router.patch("/tests/:id/toggle", toggleTestActive);
+
+// Reseed built-in default tests from sampleTests/*.bundle.json (idempotent upsert)
+router.post("/tests/seed", async (req, res, next) => {
+  try {
+    const result = await seedTests();
+    return res.json({
+      ok: true,
+      message: `Seeded ${result.total} tests from ${result.bundles} bundles.`,
+      ...result
+    });
+  } catch (err) {
+    return next(err);
+  }
+});
 
 // ── Assignments ──────────────────────────────────
 router.post("/assignments", assignTest);

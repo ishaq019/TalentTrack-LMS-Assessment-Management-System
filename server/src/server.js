@@ -9,10 +9,19 @@ const rateLimit = require("express-rate-limit");
 
 dotenv.config();
 
+// Define NODE_ENV early for mongodb-memory-server check
+const NODE_ENV = process.env.NODE_ENV || "development";
+
+// Development: mongodb-memory-server fallback
+let mongoMemoryServer;
+const MongoMemoryServer = NODE_ENV === "development" ? require("mongodb-memory-server").MongoMemoryServer : null;
+
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 const { initJobs } = require("./jobs/initJobs");
+const { seedTests } = require("./seed/seedTests");
+const { ensureAdminUser } = require("./seed/seedAdmin");
 
 const app = express();
 
@@ -21,11 +30,7 @@ const app = express();
  */
 const REQUIRED_ENVS = [
   "MONGO_URI", 
-  "JWT_ACCESS_SECRET", 
-  "SMTP_HOST", 
-  "SMTP_PORT", 
-  "SMTP_USER", 
-  "SMTP_PASS"
+  "JWT_ACCESS_SECRET"
 ];
 
 // Only validate on startup (not on Vercel's build phase)
@@ -41,7 +46,6 @@ if (process.env.VERCEL !== "1" || process.env.VERCEL_ENV) {
 }
 
 const PORT = process.env.PORT || 8080;
-const NODE_ENV = process.env.NODE_ENV || "development";
 
 /**
  * 2) CORS – allowed origins
@@ -154,17 +158,45 @@ app.use((err, req, res, next) => {
 
 /**
  * 8) DB connect helper (called once per cold start on Vercel)
+ * In development: Falls back to mongodb-memory-server if Atlas is unreachable
  */
 let dbConnected = false;
 
 async function connectDB() {
   if (dbConnected) return;
   mongoose.set("strictQuery", true);
-  await mongoose.connect(process.env.MONGO_URI, {
-    autoIndex: NODE_ENV !== "production"
-  });
-  dbConnected = true;
-  console.log("[DB] Connected to MongoDB");
+  
+  try {
+    // Try to connect to configured MongoDB URI
+    await mongoose.connect(process.env.MONGO_URI, {
+      autoIndex: NODE_ENV !== "production",
+      serverSelectionTimeoutMS: 5000 // 5 second timeout
+    });
+    dbConnected = true;
+    console.log("[DB] ✅ Connected to MongoDB Atlas");
+  } catch (atlasError) {
+    // In development, fall back to in-memory MongoDB
+    if (NODE_ENV === "development" && MongoMemoryServer) {
+      console.warn("[DB] ⚠️  MongoDB Atlas unreachable, falling back to in-memory MongoDB...");
+      try {
+        mongoMemoryServer = await MongoMemoryServer.create();
+        const mongoUri = mongoMemoryServer.getUri();
+        
+        await mongoose.connect(mongoUri, {
+          autoIndex: true
+        });
+        dbConnected = true;
+        console.log("[DB] ✅ Connected to in-memory MongoDB (development only)");
+      } catch (memoryError) {
+        console.error("[DB] ❌ Failed to initialize in-memory MongoDB:", memoryError.message);
+        throw memoryError;
+      }
+    } else {
+      // In production or without fallback, throw the original error
+      console.error("[DB] ❌ Failed to connect to MongoDB:", atlasError.message);
+      throw atlasError;
+    }
+  }
 }
 
 /**
@@ -175,6 +207,10 @@ if (process.env.VERCEL !== "1") {
   (async function start() {
     try {
       await connectDB();
+      await seedTests();
+      await ensureAdminUser().catch((e) => {
+        console.warn("[seedAdmin] Auto-seed failed:", e?.message || e);
+      });
 
       const jobsEnabled = process.env.JOBS_ENABLED !== "false";
       if (jobsEnabled) {
@@ -192,6 +228,16 @@ if (process.env.VERCEL !== "1") {
     }
   })();
 }
+
+// Graceful shutdown: clean up in-memory MongoDB
+process.on("SIGTERM", async () => {
+  console.log("[SHUTDOWN] Received SIGTERM, cleaning up...");
+  if (mongoMemoryServer) {
+    await mongoMemoryServer.stop();
+    console.log("[SHUTDOWN] In-memory MongoDB stopped");
+  }
+  process.exit(0);
+});
 
 // Export for Vercel serverless + connectDB for the handler
 module.exports = { app, connectDB };

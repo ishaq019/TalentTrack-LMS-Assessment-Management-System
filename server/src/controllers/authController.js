@@ -1,8 +1,50 @@
 // server/src/controllers/authController.js
 const User = require("../models/User");
+const Test = require("../models/Test");
+const Assignment = require("../models/Assignment");
 const { signupSchema, verifyOtpSchema, loginSchema } = require("../validations/authSchemas");
 const { createAndSendOtp, verifyOtp } = require("../services/otpService");
 const { signAccessToken, signRefreshToken } = require("../utils/tokens");
+
+async function createStarterAssignmentsForUser(userId) {
+  const starterCategories = ["aptitude", "dsa", "coding", "logical", "verbal", "mixed", "cs-core"];
+  const tests = await Test.find({
+    isActive: true,
+    "metadata.isPractice": true,
+    "metadata.category": { $in: starterCategories }
+  })
+    .sort({ createdAt: 1 })
+    .select("metadata");
+
+  if (tests.length === 0) return { created: 0 };
+
+  const existingAssignments = await Assignment.find({
+    assignedTo: userId,
+    testId: { $in: tests.map((t) => t._id) }
+  }).select("testId");
+
+  const existingTestIds = new Set(existingAssignments.map((a) => String(a.testId)));
+  const docs = tests
+    .filter((test) => !existingTestIds.has(String(test._id)))
+    .slice(0, 6)
+    .map((test, index) => ({
+      testId: test._id,
+      assignedTo: userId,
+      assignedBy: userId,
+      expiresAt: new Date(Date.now() + (index + 7) * 24 * 60 * 60 * 1000),
+      attemptLimit: 3,
+      status: "assigned",
+      overrideConfig: {
+        durationMinutes: test.metadata?.durationMinutes ?? null,
+        questionCount: test.metadata?.questionCount ?? null
+      }
+    }));
+
+  if (docs.length === 0) return { created: 0 };
+
+  await Assignment.insertMany(docs, { ordered: false });
+  return { created: docs.length };
+}
 
 /**
  * POST /auth/signup
@@ -73,6 +115,10 @@ async function verifyOtpController(req, res, next) {
 
     user.isVerified = true;
     await user.save();
+
+    await createStarterAssignmentsForUser(user._id).catch((err) => {
+      console.warn("[starter-assignments] Failed:", err?.message || err);
+    });
 
     const accessToken = signAccessToken(user);
     const refreshToken = signRefreshToken(user);
@@ -296,5 +342,6 @@ module.exports = {
   resendOtp,
   refreshTokens,
   forgotPassword,
-  resetPassword
+  resetPassword,
+  createStarterAssignmentsForUser
 };

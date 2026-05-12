@@ -115,11 +115,11 @@
                 "python": "import sys\ns = sys.stdin.read().strip()\n# TODO: print YES or NO\n"
               },
               "testcases": [
-                { "input": "()[]{}\\n", "output": "YES\n", "isSample": true },
-                { "input": "(]\\n", "output": "NO\n", "isSample": true },
-                { "input": "([{}])\\n", "output": "YES\n", "isSample": false },
-                { "input": "(((()\\n", "output": "NO\n", "isSample": false },
-                { "input": "{[()]}[]\\n", "output": "YES\n", "isSample": false }
+                { "input": "()[]{}\n", "output": "YES\n", "isSample": true },
+                { "input": "(]\n", "output": "NO\n", "isSample": true },
+                { "input": "([{}])\n", "output": "YES\n", "isSample": false },
+                { "input": "(((()\n", "output": "NO\n", "isSample": false },
+                { "input": "{[()]}[]\n", "output": "YES\n", "isSample": false }
               ]
             }
           ]

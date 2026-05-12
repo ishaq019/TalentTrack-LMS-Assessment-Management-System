@@ -18,7 +18,10 @@ function normalizeTemplate(tpl) {
   if (!tpl?.metadata?.id) throw new Error("Template missing metadata.id");
 
   return {
-    metadata: tpl.metadata,
+    metadata: {
+      ...tpl.metadata,
+      isPractice: true
+    },
     config: tpl.config || {},
     sections: tpl.sections || [],
     isActive: tpl.isActive !== false
@@ -43,21 +46,13 @@ function listBundleFiles() {
     .map((f) => path.join(SAMPLE_DIR, f));
 }
 
-async function main() {
-  const MONGO_URI = process.env.MONGO_URI;
-  if (!MONGO_URI) {
-    console.error("[seedTests] Missing MONGO_URI in .env");
-    process.exit(1);
-  }
-
+async function seedTests() {
   const bundles = listBundleFiles();
-  if (bundles.length === 0) {
-    console.error(`[seedTests] No *.bundle.json found in ${SAMPLE_DIR}`);
-    process.exit(1);
-  }
 
-  await mongoose.connect(MONGO_URI, { autoIndex: true });
-  console.log("[seedTests] Connected to MongoDB");
+  if (bundles.length === 0) {
+    console.warn(`[seedTests] No *.bundle.json found in ${SAMPLE_DIR}`);
+    return { total: 0, bundles: 0 };
+  }
 
   let total = 0;
 
@@ -76,11 +71,35 @@ async function main() {
     }
   }
 
-  await mongoose.disconnect();
-  console.log(`[seedTests] Done. Upserted ${total} tests from ${bundles.length} bundles.`);
+  return { total, bundles: bundles.length };
 }
 
-main().catch((e) => {
-  console.error("[seedTests] Fatal:", e);
-  process.exit(1);
-});
+async function main() {
+  const MONGO_URI = process.env.MONGO_URI;
+  if (!MONGO_URI) {
+    console.error("[seedTests] Missing MONGO_URI in .env");
+    process.exit(1);
+  }
+
+  await mongoose.connect(MONGO_URI, { autoIndex: true });
+  console.log("[seedTests] Connected to MongoDB");
+
+  const result = await seedTests();
+
+  await mongoose.disconnect();
+  console.log(`[seedTests] Done. Upserted ${result.total} tests from ${result.bundles} bundles.`);
+}
+
+if (require.main === module) {
+  main().catch((e) => {
+    console.error("[seedTests] Fatal:", e);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  seedTests,
+  normalizeTemplate,
+  upsertByTemplateId,
+  listBundleFiles
+};

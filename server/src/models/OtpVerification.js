@@ -23,8 +23,7 @@ const OtpVerificationSchema = new mongoose.Schema(
     // OTP expiry time
     expiresAt: {
       type: Date,
-      required: true,
-      index: true
+      required: true
     },
 
     // Brute-force protection

@@ -1,6 +1,8 @@
 // server/src/config/mailer.js
 const nodemailer = require("nodemailer");
 
+let transporter;
+
 function getSmtpConfig() {
   const host = process.env.SMTP_HOST;
   const port = Number(process.env.SMTP_PORT);
@@ -15,7 +17,13 @@ function getSmtpConfig() {
   return { host, port, secure, auth: { user, pass } };
 }
 
-const transporter = nodemailer.createTransport(getSmtpConfig());
+function getTransporter() {
+  if (!transporter) {
+    transporter = nodemailer.createTransport(getSmtpConfig());
+  }
+
+  return transporter;
+}
 
 /**
  * Basic branded HTML wrapper for TalentTrack.
@@ -57,9 +65,13 @@ function wrapHtml({ title, bodyHtml, footerHtml }) {
  */
 async function sendMail({ to, subject, text, html }) {
   const fromName = process.env.MAIL_FROM_NAME || "TalentTrack";
-  const fromEmail = process.env.MAIL_FROM_EMAIL || process.env.SMTP_USER;
+  const fromEmail = process.env.MAIL_FROM_EMAIL || process.env.EMAIL_FROM || process.env.SMTP_USER;
 
-  const info = await transporter.sendMail({
+  if (!process.env.SMTP_HOST || !process.env.SMTP_PORT || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    throw new Error("SMTP is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, and SMTP_PASS before sending mail.");
+  }
+
+  const info = await getTransporter().sendMail({
     from: `${fromName} <${fromEmail}>`,
     to,
     subject,

@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "LMS + Quiz/Coding Assessment backend (Node/Express + MongoDB) with JWT, OTP email verification, assignments, scoring, reports. No Redis.",
-  "main": "src/server.js",
+  "main": "server/src/server.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon server/src/server.js",
+    "start": "node server/src/server.js",
     "lint": "eslint .",
     "test": "node --test"
   },
