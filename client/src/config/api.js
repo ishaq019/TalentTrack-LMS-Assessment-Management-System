@@ -5,7 +5,7 @@
  */
 
 // Production backend deployed on Vercel
-export const API_BASE_URL = "https://talent-track-lms-assessment-managem.vercel.app";
+export const API_BASE_URL = "https://talent-track-lms-assessment-managem.vercel.app/api";
 
 // For local development, uncomment below and comment production URL
 
